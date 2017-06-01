@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OWA reminder notification
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3
+// @version      0.1.4
 // @description  Popup reminders from Outlook OWA.
 // @match        https://outlook.office.com/owa/*
 // @match        https://outlook.office365.com/owa/*
@@ -36,7 +36,14 @@
         ' (' + latestReminder.timeDuration + ')\n' +
         latestReminder.venue;
 
-      GM_notification(popupText, 'Reminder: ' + latestReminder.title);
+      var popupDetails = {
+        text: popupText,
+        title: 'Reminder: ' + latestReminder.title,
+        // Show timeout for a longer time.
+        timeout: 15000,
+      };
+
+      GM_notification(popupDetails);
     }
 
     // There was a change in the count, record the new count so
