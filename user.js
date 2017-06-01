@@ -5,6 +5,7 @@
 // @description  Popup reminders from Outlook OWA.
 // @match        https://outlook.office.com/owa/*
 // @match        https://outlook.office365.com/owa/*
+// @author       Eugene Sia <eugene@eugenesia.co.uk>
 // @copyright    2017+, Eugene Sia
 // @grant        GM_notification
 // @run-at       document-idle
