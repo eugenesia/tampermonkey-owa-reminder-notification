@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OWA reminder notification
 // @namespace    http://tampermonkey.net/
-// @version      0.1.1
+// @version      0.1.2
 // @description  Popup reminders from Outlook OWA.
 // @match        https://outlook.office.com/owa/*
 // @match        https://outlook.office365.com/owa/*
@@ -30,9 +30,10 @@
     if (reminderCount > lastReminderCount) {
       var latestReminder = getLatestReminder();
 
-      var popupText = (latestReminder.isOverdue ? 'Overdue' : 'In ' + latestReminder.timeToStart) + '\n' +
+      var popupText = (latestReminder.isOverdue ? 'Overdue' : 'In ' + latestReminder.timeToStart) +
+        ' - ' +
         latestReminder.timeDuration + '\n' +
-        latestReminder.location;
+        latestReminder.venue;
 
       GM_notification(popupText, 'Reminder: ' + latestReminder.title);
     }
@@ -67,7 +68,7 @@
     // Time duration e.g. '15:00 - 15:30'.
     var timeDuration = latestReminder.querySelector('.o365cs-notifications-reminders-timeDuration').innerText;
 
-    var location = latestReminder.querySelector('.o365cs-notifications-reminders-location').innerText;
+    var venue = latestReminder.querySelector('.o365cs-notifications-reminders-location').innerText;
 
     // If "Overdue" text is shown, then the event is overdue.
     var isOverdue = true;
@@ -80,7 +81,7 @@
       title: title,
       timeToStart: timeToStartValue + ' ' + timeToStartUnit,
       timeDuration: timeDuration,
-      location: location,
+      venue: venue,
       isOverdue: isOverdue,
     };
   }
