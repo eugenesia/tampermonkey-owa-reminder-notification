@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OWA reminder notification
 // @namespace    http://tampermonkey.net/
-// @version      0.1.2
+// @version      0.1.3
 // @description  Popup reminders from Outlook OWA.
 // @match        https://outlook.office.com/owa/*
 // @match        https://outlook.office365.com/owa/*
@@ -30,9 +30,10 @@
     if (reminderCount > lastReminderCount) {
       var latestReminder = getLatestReminder();
 
-      var popupText = (latestReminder.isOverdue ? 'Overdue' : 'In ' + latestReminder.timeToStart) +
-        ' - ' +
-        latestReminder.timeDuration + '\n' +
+      // E.g. 'Overdue by 17 Min (15:00 - 15:25)\nRoom number 5'.
+      var popupText = (latestReminder.isOverdue ? 'Overdue by ' : 'Upcoming in ') +
+        latestReminder.timeToStart +
+        ' (' + latestReminder.timeDuration + ')\n' +
         latestReminder.venue;
 
       GM_notification(popupText, 'Reminder: ' + latestReminder.title);
