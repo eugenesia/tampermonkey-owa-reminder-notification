@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OWA reminder notification
 // @namespace    http://tampermonkey.net/
-// @version      0.1.0
+// @version      0.1.1
 // @description  Popup reminders from Outlook OWA.
 // @match        https://outlook.office.com/owa/*
 // @match        https://outlook.office365.com/owa/*
