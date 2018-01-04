@@ -11,17 +11,17 @@
 
 (function() {
   'use strict';
-	// Wait a few seconds for the logo to load, as it loads asynchronously.
-	setTimeout(function(){
-		// Logo <img> ends with 'logo.gif'.
-		var logoImg = document.querySelector('img[src*="logo.gif"]');
-		if (logoImg !== null) {
-			logoImg.src = '';
-			console.log('Logo set to empty string.');
-		}
-		else {
-			console.log('Logo img element not found.');
-		}
-	}, 5000);
+  // Wait a few seconds for the logo to load, as it loads asynchronously.
+  setTimeout(function(){
+    // Logo <img> ends with 'logo.gif'.
+    var logoImg = document.querySelector('img[src*="logo.gif"]');
+    if (logoImg !== null) {
+      logoImg.src = '';
+      console.log('Logo set to empty string.');
+    }
+    else {
+      console.log('Logo img element not found.');
+    }
+  }, 5000);
 })();
 
