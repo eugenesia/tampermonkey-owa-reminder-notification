@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Gmail logo
 // @namespace    http://eugenesia.net/
-// @version      0.1.0
+// @version      0.1.1
 // @description  Remove Gmail logo from the browser.
 // @match        https://mail.google.com/*
 // @author       Eugene Sia <eugene@eugenesia.co.uk>
