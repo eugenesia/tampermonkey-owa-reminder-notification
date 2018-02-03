@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Musicnotes unpreview
-// @namespace    http://musicnotes.eugenesia.net/
+// @namespace    http://eugenesia.net/
 // @version      1.0.0
 // @description  Remove preview overlay from sheet music.
 // @author       Eugene Sia <eugene@eugenesia.co.uk>
