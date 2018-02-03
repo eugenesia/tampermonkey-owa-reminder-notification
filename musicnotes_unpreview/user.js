@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Musicnotes unpreview
 // @namespace    http://eugenesia.net/
-// @version      1.1.0
+// @version      1.2.0
 // @description  Remove preview overlay from sheet music.
 // @author       Eugene Sia <eugene@eugenesia.co.uk>
 // @require      https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.18.2/babel.js
@@ -52,10 +52,19 @@ var inline_src = (<><![CDATA[
       geval(scriptTxt);
     });
 
+  // Column showing song.
+  let songCol = document.querySelector('#svgplayer').parentElement;
+
+  // Save song classname for later.
+  let songClass = songCol.className;
+
   // Make song window larger for screen capture or print.
   function expandSong() {
-    let songDiv = document.querySelector('[class*=col-lg-5]');
-    songDiv.className = songDiv.className.replace('col-lg-5', 'col-lg-12');
+    songCol.className = songClass
+      // Size "lg" is used on desktops, make it full width.
+      .replace('col-lg-5', 'col-lg-12')
+      // Size "sm" is used in print mode, make it full width.
+      .replace('col-sm-7', 'col-sm-12');
   }
 
   let expandBtn = document.createElement('button');
